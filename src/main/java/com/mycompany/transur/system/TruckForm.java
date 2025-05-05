@@ -6,7 +6,6 @@ package com.mycompany.transur.system;
 
 import controllers.truck_controller;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -41,6 +40,7 @@ public class TruckForm extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         patentField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         jTextField1.setText("jTextField1");
 
@@ -109,6 +109,21 @@ public class TruckForm extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 240, 30));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
+        );
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 300, 290));
     }// </editor-fold>//GEN-END:initComponents
 
     private void internalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_internalFieldActionPerformed
@@ -135,8 +150,6 @@ public class TruckForm extends javax.swing.JPanel {
         truck_controller.addTruck(patent, internal);
         patentField.setText("");
         internalField.setText("");
-        patentField.setEditable(true);
-        internalField.setEditable(true);
         
             } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(null, "El campo 'interno' debe ser un número.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -153,6 +166,7 @@ public class TruckForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;

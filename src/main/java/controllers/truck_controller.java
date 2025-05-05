@@ -19,7 +19,6 @@ public class truck_controller {
     public static void addTruck(String patentField, int internalField) {
        Cconection conect = new Cconection();
        
-       //DefaultTableModel model = new DefaultTableModel();
        
        String sql = "INSERT INTO truck(patent, internal) VALUES (?,?)";
        

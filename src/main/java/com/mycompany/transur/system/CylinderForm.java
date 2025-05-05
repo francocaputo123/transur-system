@@ -4,6 +4,9 @@
  */
 package com.mycompany.transur.system;
 
+import controllers.cylinder_controller;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -27,34 +30,185 @@ public class CylinderForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollBar1 = new javax.swing.JScrollBar();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        stateField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        typeField = new javax.swing.JTextField();
+        btnCylinder = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        serialField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        numberField = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Cilindros");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(441, Short.MAX_VALUE)
+        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+
+        jLabel1.setFont(new java.awt.Font("Roboto ExtraBold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Creación de cilindro");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(239, 239, 239)
                 .addComponent(jLabel1)
-                .addGap(80, 80, 80))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 70));
+
+        jLabel2.setFont(new java.awt.Font("Roboto ExtraBold", 0, 18)); // NOI18N
+        jLabel2.setText("Ingrese el estado:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
+
+        stateField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stateFieldActionPerformed(evt);
+            }
+        });
+        add(stateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 240, 30));
+
+        jLabel3.setFont(new java.awt.Font("Roboto ExtraBold", 0, 18)); // NOI18N
+        jLabel3.setText("Ingrese el tipo de cilindro:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+
+        typeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeFieldActionPerformed(evt);
+            }
+        });
+        add(typeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 240, 30));
+
+        btnCylinder.setBackground(new java.awt.Color(0, 0, 255));
+        btnCylinder.setFont(new java.awt.Font("Roboto ExtraBold", 0, 18)); // NOI18N
+        btnCylinder.setForeground(new java.awt.Color(255, 255, 255));
+        btnCylinder.setText("Crear cilindro");
+        btnCylinder.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCylinder.setBorderPainted(false);
+        btnCylinder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCylinderActionPerformed(evt);
+            }
+        });
+        add(btnCylinder, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 240, 30));
+
+        jLabel4.setFont(new java.awt.Font("Roboto ExtraBold", 0, 18)); // NOI18N
+        jLabel4.setText("Ingrese el numero de serie:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
+
+        serialField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serialFieldActionPerformed(evt);
+            }
+        });
+        add(serialField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 240, 30));
+
+        jLabel5.setFont(new java.awt.Font("Roboto ExtraBold", 0, 18)); // NOI18N
+        jLabel5.setText("Ingrese el número propio:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
+
+        numberField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberFieldActionPerformed(evt);
+            }
+        });
+        add(numberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 240, 30));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 300, 330));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void stateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateFieldActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_stateFieldActionPerformed
+
+    private void typeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeFieldActionPerformed
+
+    private void btnCylinderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCylinderActionPerformed
+        // TODO add your handling code here:
+
+        
+        if(typeField.getText().isEmpty() || serialField.getText().isEmpty() || numberField.getText().isEmpty() || stateField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Hay datos faltantes en el formulario, por favor, vuelva a ingresarlos","Error",JOptionPane.INFORMATION_MESSAGE );
+        } else {
+
+            String Ctype = typeField.getText();
+            int serial = 0;
+            int number = 0;
+            String Cstate = stateField.getText();
+            
+            try {
+
+                serial = Integer.parseInt(serialField.getText());
+                number = Integer.parseInt(numberField.getText());
+                cylinder_controller.addCylinder(Ctype,serial,Cstate,number);
+                
+                typeField.setText("");
+                serialField.setText("");
+                numberField.setText("");
+                stateField.setText("");
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Los campos para serie y numero propio deben ser un número.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnCylinderActionPerformed
+
+    private void serialFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serialFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serialFieldActionPerformed
+
+    private void numberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCylinder;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JTextField numberField;
+    private javax.swing.JTextField serialField;
+    private javax.swing.JTextField stateField;
+    private javax.swing.JTextField typeField;
     // End of variables declaration//GEN-END:variables
 }

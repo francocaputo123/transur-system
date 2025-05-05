@@ -1,2 +1,5 @@
 Transur.db
 Transur
+
+/target/
+*.class
