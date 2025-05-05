@@ -26,9 +26,9 @@ public class Cconection {
         try {
             Class.forName("org.sqlite.JDBC");
             conect = DriverManager.getConnection(string);
-            JOptionPane.showMessageDialog(null, "Se conecto correctamente");
+            //JOptionPane.showMessageDialog(null, "Se conecto correctamente");
         } catch (Exception e) {
-          JOptionPane.showMessageDialog(null, "No se conecto: " + e.toString());
+          JOptionPane.showMessageDialog(null, "Erro en la base de datos: " + e.toString());
         }
         
         return conect;
