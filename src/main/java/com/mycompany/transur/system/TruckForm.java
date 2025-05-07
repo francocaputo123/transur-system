@@ -5,6 +5,7 @@
 package com.mycompany.transur.system;
 
 import controllers.truck_controller;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -84,6 +85,11 @@ public class TruckForm extends javax.swing.JPanel {
                 internalFieldActionPerformed(evt);
             }
         });
+        internalField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                internalFieldKeyPressed(evt);
+            }
+        });
         add(internalField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 240, 30));
 
         jLabel3.setFont(new java.awt.Font("Roboto ExtraBold", 0, 18)); // NOI18N
@@ -137,25 +143,15 @@ public class TruckForm extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        if(patentField.getText().isEmpty() || internalField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Hay datos faltantes en el formulario, por favor, vuelva a ingresarlos","Error",JOptionPane.INFORMATION_MESSAGE );
-        } else {
-        
-        String patent = patentField.getText();
-        int internal = 0;
-        try {
-            
-        internal = Integer.parseInt(internalField.getText());
-        truck_controller.addTruck(patent, internal);
-        patentField.setText("");
-        internalField.setText("");
-        
-            } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "El campo 'interno' debe ser un número.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+        addTruck();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void internalFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_internalFieldKeyPressed
+        // TODO add your handling code here:
+        if (evt.getExtendedKeyCode() == KeyEvent.VK_ENTER) {
+            addTruck();
+        }
+    }//GEN-LAST:event_internalFieldKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -172,4 +168,27 @@ public class TruckForm extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField patentField;
     // End of variables declaration//GEN-END:variables
+
+
+    private void addTruck() {
+        
+        if(patentField.getText().isEmpty() || internalField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Hay datos faltantes en el formulario, por favor, vuelva a ingresarlos","Error",JOptionPane.INFORMATION_MESSAGE );
+        } else {
+        
+        String patent = patentField.getText();
+        int internal = 0;
+        try {
+            
+        internal = Integer.parseInt(internalField.getText());
+        truck_controller.addTruck(patent, internal);
+        patentField.setText("");
+        internalField.setText("");
+        JOptionPane.showMessageDialog(null, "El camión fue creado correctamente.", "", JOptionPane.INFORMATION_MESSAGE);
+        
+            } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "El campo 'interno' debe ser un número.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
 }
