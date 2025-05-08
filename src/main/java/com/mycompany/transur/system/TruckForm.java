@@ -4,7 +4,7 @@
  */
 package com.mycompany.transur.system;
 
-import controllers.truck_controller;
+import controllers.TruckController;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -181,7 +181,7 @@ public class TruckForm extends javax.swing.JPanel {
         try {
             
         internal = Integer.parseInt(internalField.getText());
-        truck_controller.addTruck(patent, internal);
+        TruckController.addTruck(patent, internal);
         patentField.setText("");
         internalField.setText("");
         JOptionPane.showMessageDialog(null, "El camión fue creado correctamente.", "", JOptionPane.INFORMATION_MESSAGE);

@@ -7,25 +7,21 @@ package controllers;
 import com.mycompany.transur.system.Cconection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Usuario
  */
-public class truck_controller {
+public class TruckCylinderController {
     
-    public static void addTruck(String patentField, int internalField) {
-       Cconection conect = new Cconection();
-       
-       
-       String sql = "INSERT INTO truck(patent, internal) VALUES (?,?)";
-       
+    public static void addCyliderForTruck(int id_truck, int id_cylinder, String position) {
+        
+        Cconection conect = new Cconection();
+        
+        String sql = "INSERT INTO truck_cylinder(id_truck, id_cylinder, active, asignation_date, position) VALUES(?,?,?,?,?)";
+        
         try {
             PreparedStatement ps = conect.conect().prepareStatement(sql);
-            ps.setString(1, patentField);
-            ps.setInt(2,internalField);
             
             ps.execute();
         } catch (Exception e) {
@@ -35,10 +31,5 @@ public class truck_controller {
         finally{
             conect.closeConnection();
         }
-       //model.add
-    }
-    
-    public static void modifyTruck(){
-        
     }
 }

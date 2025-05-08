@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class cylinder_controller {
+public class CylinderController {
     
     public static void addCylinder(String type, int serial, String state, int number){
         Cconection conect = new Cconection();
