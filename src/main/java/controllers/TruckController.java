@@ -14,26 +14,30 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Usuario
  */
-public class truck_controller {
+public class TruckController {
     
     public static void addTruck(String patentField, int internalField) {
        Cconection conect = new Cconection();
        
        
        String sql = "INSERT INTO truck(patent, internal) VALUES (?,?)";
+       PreparedStatement ps = null;
        
         try {
-            PreparedStatement ps = conect.conect().prepareStatement(sql);
+            ps = conect.conect().prepareStatement(sql);
             ps.setString(1, patentField);
             ps.setInt(2,internalField);
             
             ps.execute();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Fallo al insertar a la base de datos" + e.toString(),"Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        finally{
+        } finally{
+            try {
+            if (ps != null) ps.close();
             conect.closeConnection();
+        } catch (Exception e) {
+            System.err.println("Error cerrando recursos: " + e.getMessage());
+        }
         }
        //model.add
     }

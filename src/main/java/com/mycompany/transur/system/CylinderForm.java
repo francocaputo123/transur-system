@@ -4,7 +4,7 @@
  */
 package com.mycompany.transur.system;
 
-import controllers.cylinder_controller;
+import controllers.CylinderController;
 import javax.swing.JOptionPane;
 
 /**
@@ -173,7 +173,7 @@ public class CylinderForm extends javax.swing.JPanel {
 
                 serial = Integer.parseInt(serialField.getText());
                 number = Integer.parseInt(numberField.getText());
-                cylinder_controller.addCylinder(Ctype,serial,Cstate,number);
+                CylinderController.addCylinder(Ctype,serial,Cstate,number);
                 
                 typeField.setText("");
                 serialField.setText("");
