@@ -18,9 +18,10 @@ public class CylinderController {
         Cconection conect = new Cconection();
         
         String sql = "INSERT INTO cylinder (type,serial,state,number) VALUES (?,?,?,?)";
+        PreparedStatement ps = null;
         
         try {
-            PreparedStatement ps = conect.conect().prepareStatement(sql);
+            ps = conect.conect().prepareStatement(sql);
             ps.setString(1,type);
             ps.setInt(2,serial);
             ps.setString(3, state);
@@ -30,10 +31,13 @@ public class CylinderController {
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error", "Hubo un error al resgistrar e cilindro: " + e.toString(), JOptionPane.ERROR_MESSAGE);
-        }
-        
-        finally {
+        } finally {
+            try {
+            if (ps != null) ps.close();
             conect.closeConnection();
+        } catch (Exception e) {
+            System.err.println("Error cerrando recursos: " + e.getMessage());
+        }
         }
     }
 }

@@ -28,7 +28,7 @@ public class Cconection {
             conect = DriverManager.getConnection(string);
             //JOptionPane.showMessageDialog(null, "Se conecto correctamente");
         } catch (Exception e) {
-          JOptionPane.showMessageDialog(null, "Erro en la base de datos: " + e.toString());
+          JOptionPane.showMessageDialog(null, "Error en la base de datos: " + e.toString());
         }
         
         return conect;
