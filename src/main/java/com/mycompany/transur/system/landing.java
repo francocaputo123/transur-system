@@ -4,7 +4,6 @@
  */
 package com.mycompany.transur.system;
 
-import controllers.ShowData;
 
 /**
  *
@@ -20,8 +19,6 @@ public class landing extends javax.swing.JFrame {
         /*Cconection conect = new Cconection();
         conect.conect();*/
         
-        //ShowData showData = new ShowData();
-        //showData.showData(data);
         
     }
 

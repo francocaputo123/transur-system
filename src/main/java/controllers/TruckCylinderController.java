@@ -33,9 +33,9 @@ public class TruckCylinderController {
             ps.setInt(3,1);
             ps.setString(4,asignation_date);
             ps.setString(5,position);
+            ps.executeUpdate();
             
-            
-            ps.execute();
+            CylinderHistoryController.addNewHistory(conect, id_truck, id_cylinder, position, asignation_date);
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Fallo al insertar a la base de datos" + e.toString(),"Error", JOptionPane.ERROR_MESSAGE);
