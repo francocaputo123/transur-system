@@ -21,6 +21,7 @@ com\mycompany\transur\system\TruckCylinderAsignForm$1.class
 com\mycompany\transur\system\TruckForm$2.class
 com\mycompany\transur\system\CylinderHistoryForm.class
 com\mycompany\transur\system\CylinderForm$4.class
+com\mycompany\transur\system\CylinderHistoryForm$1.class
 com\mycompany\transur\system\TruckCylinderForm$3.class
 com\mycompany\transur\system\TruckForm$1.class
 controllers\CylinderController.class
