@@ -120,6 +120,36 @@ public class TruckCylinderController {
         return false;
     }
     
+    public static void desasignCylinder(String number) {
+        
+        Cconection conect = new Cconection();
+        
+        int id_cylinder = Integer.parseInt(CylinderController.getCylinderId(number));
+        String sql = "DELETE FROM truck_cylinder WHERE id_cylinder = ?";
+        PreparedStatement ps = null;
+        
+        
+        try {
+            ps = conect.conect().prepareStatement(sql);
+            ps.setInt(1, id_cylinder);
+            
+            
+            ps.executeUpdate();
+            CylinderHistoryController.endDateHistory(id_cylinder);
+            
+        } catch (Exception e) {
+        JOptionPane.showMessageDialog(null,"Error en borrar datos de cilindro: " + e.toString());
+        
+        }finally {
+            try {
+                if(ps != null) ps.close();
+                conect.closeConnection();
+            } catch (Exception e) {
+                System.out.println("Porblemas al cerrar la coneccion: " + e.toString());
+            }
+        }
+    }
+    
     public static String todayDate() {
        
         LocalDate today = LocalDate.now();

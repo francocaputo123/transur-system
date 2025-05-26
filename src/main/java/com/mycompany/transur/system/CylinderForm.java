@@ -179,6 +179,8 @@ public class CylinderForm extends javax.swing.JPanel {
                 serialField.setText("");
                 numberField.setText("");
                 stateField.setText("");
+                
+                JOptionPane.showMessageDialog(null, "El cilindro se ha creado correctamente.", "", JOptionPane.PLAIN_MESSAGE);
 
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Los campos para serie y numero propio deben ser un número.", "Error", JOptionPane.ERROR_MESSAGE);
