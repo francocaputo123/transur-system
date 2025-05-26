@@ -6,6 +6,8 @@ package controllers;
 
 import com.mycompany.transur.system.Cconection;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -25,6 +27,7 @@ public class CylinderHistoryController {
         
         try {
             ps = conect.conect().prepareStatement(sql);
+            
             rs = ps.executeQuery();
             
             while(rs.next()){
@@ -32,6 +35,8 @@ public class CylinderHistoryController {
                 data[0] = rs.getString("id_history_cylinder");
                 data[1] = rs.getString("id_truck");
                 data[2] = rs.getString("id_cylinder");
+                String c_number = data[2];
+                data[2] = CylinderController.getCylinderNumber(c_number);
                 data[3] = rs.getString("t_internal");
                 data[4] = rs.getString("c_position");
                 data[5] = rs.getString("asignation_date");
@@ -106,5 +111,39 @@ public class CylinderHistoryController {
         }
     }
 }
+ 
+ public static void endDateHistory(int id_cylinder) {
+     
+     Cconection conect = new Cconection();
+     
+     String sql = "UPDATE history_cylinder SET end_date = ? WHERE id_cylinder = ?";
+     PreparedStatement ps = null;
+     
+     try {
+         ps = conect.conect().prepareStatement(sql);
+         ps.setString(1, todayDate());
+         ps.setInt(2, id_cylinder);
+         
+         ps.executeUpdate();
+                 
+     } catch (Exception e) {
+         JOptionPane.showConfirmDialog(null, "No se pudo modificar la tabla de historiales: " + e.toString());
+     }finally {
+         try {
+             if(ps != null) ps.close();
+             conect.closeConnection();
+         } catch (Exception e) {
+             System.out.println("Error al cerrar la base de datos");
+         }
+     }
+ }
+     private static String todayDate() {
+       
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formatToday = today.format(format);
+        
+        return formatToday;
+    }
     
 }

@@ -16,9 +16,11 @@ com\mycompany\transur\system\landing.class
 com\mycompany\transur\system\landing$1.class
 com\mycompany\transur\system\landing$4.class
 com\mycompany\transur\system\CylinderForm$2.class
+com\mycompany\transur\system\CylinderHistoryForm$2.class
 com\mycompany\transur\system\TruckCylinderForm$1.class
 com\mycompany\transur\system\TruckCylinderAsignForm$1.class
 com\mycompany\transur\system\TruckForm$2.class
+com\mycompany\transur\system\landing$9.class
 com\mycompany\transur\system\CylinderHistoryForm.class
 com\mycompany\transur\system\CylinderForm$4.class
 com\mycompany\transur\system\CylinderHistoryForm$1.class
